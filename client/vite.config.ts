@@ -11,8 +11,8 @@ export default defineConfig({
           includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],  
           manifest: {  
       name: 'websitename',  
-            short_name: 'websitename',  
-            description: 'Website description(Could be same with index.html file)',  
+            short_name: 'ABI AI',  
+            description: 'An AI Chatbot based on GPT-3 API',  
             theme_color: '#ffffff',  
             start_url: '/',  
             icons: [  
