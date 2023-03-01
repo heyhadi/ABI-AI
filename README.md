@@ -1,2 +1,2 @@
 # ABI-AI
-ABI-AI is A chatbot aplication that make use openai API
+ABI-AI is A chatbot aplication that use openai API
