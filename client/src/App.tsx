@@ -41,12 +41,13 @@ const App = () => {
 
     return (
         <div className="h-screen flex flex-col justify-between bg-gray-100">
-            <div className=" bg-white shadow">
+            <div className=" bg-white shadow" style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1 }}>
                 <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
                     <img src={androidLogoUrl} alt="Android Logo" className="h-6 mr-2" />
                     <span className="font-medium text-gray-900">ABI AI</span>
                 </div>
             </div>
+
             <div className="flex-1 overflow-y-auto px-4 py-6">
                 <div className="flex flex-col space-y-4">
                     {messages.map((message, index) => (
