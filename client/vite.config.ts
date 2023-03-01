@@ -10,7 +10,8 @@ export default defineConfig({
           registerType: 'prompt',  
           includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],  
           manifest: {  
-      name: 'websitename',  
+      name: 'ABI-AI',
+display: standalone, 
             short_name: 'ABI AI',  
             description: 'An AI Chatbot based on GPT-3 API',  
             theme_color: '#ffffff',  
