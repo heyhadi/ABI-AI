@@ -14,7 +14,7 @@ const App = () => {
     };
 
     useEffect(() => {
-        setMessages([{ text: "Hi, I am Abi your bot Buddy, How can I help you?", isUser: false }]);
+        setMessages([{ text: "Hi, I am Abi your bot Buddy created by @heyhadi using openai API, How can I help you?", isUser: false }]);
     }, []);
 
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
