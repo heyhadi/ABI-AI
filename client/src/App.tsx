@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FiSend } from "react-icons/fi";
 import { VscCircleFilled } from "react-icons/vsc";
@@ -8,6 +8,7 @@ const App = () => {
     const [inputValue, setInputValue] = useState("");
     const [messages, setMessages] = useState<{ text: string; isUser: boolean }[]>([]);
     const [loading, setLoading] = useState(false);
+    const messageListRef = useRef<HTMLDivElement>(null);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(event.target.value);
@@ -16,6 +17,12 @@ const App = () => {
     useEffect(() => {
         setMessages([{ text: "Hi, I am Abi your bot Buddy created by @heyhadi using openai API, How can I help you?", isUser: false }]);
     }, []);
+
+    useEffect(() => {
+        if (messageListRef.current) {
+            messageListRef.current.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [messages]);
 
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -51,7 +58,7 @@ const App = () => {
             <div className="flex-1 overflow-y-auto px-4 py-6 mt-12">
                 <div className="flex flex-col space-y-4">
                     {messages.map((message, index) => (
-                        <div key={index} className={`flex flex-col ${message.isUser ? "items-end" : "items-start"}`}>
+                        <div key={index} className={`flex flex-col ${message.isUser ? "items-end" : "items-start"}`} ref={messageListRef}>
                             <div className={`flex items-center ${message.isUser ? "flex-row-reverse" : ""} space-x-2`}>
                                 <div className={`${message.isUser ? " bg-green-300 text-white" : "bg-blue-200  text-white"} w-8 h-8 rounded-full flex items-center justify-center`}>
                                     <VscCircleFilled className="transform rotate-45" />
