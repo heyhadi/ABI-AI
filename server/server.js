@@ -31,20 +31,16 @@ app.get("/", (req, res) => {
 app.post("/chat", async (req, res) => {
     const {body} = req.body;
     try {
-        const response = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: `${body}`,
-            temperature: 0,
-            max_tokens: 150,
-            top_p: 1,
-            frequency_penalty: 1,
-            presence_penalty: 0,
+        const response = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages:[{role: "user", content: `${body}`}]
+           
         });
 
         res.status(200).send({
             success: true,
             error_code: 0,
-            bot: response.data.choices[0].text
+            bot: response.data.choices[0].message.content
         })
 
     } catch (error) {
